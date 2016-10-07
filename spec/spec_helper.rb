@@ -5,7 +5,7 @@ Bundler.require(:development)
 require 'coveralls'
 Coveralls.wear!
 
-require 'rain_forest'
+require 'bond_metric'
 
 module SimpleCov::Configuration
   def clean_filters
