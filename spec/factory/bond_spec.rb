@@ -26,7 +26,7 @@ describe Factory::Bond do
   end
 
   describe '#yield' do
-    it 'sets the attribute from #yield parameter as a decimal' do
+    it 'sets the attribute from #yield parameter as a decimal respresentation' do
       result = Factory::Bond.build(yield: ' 9.5%  ')
 
       expect(result.yield).to eq(0.095)

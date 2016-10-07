@@ -1,4 +1,4 @@
-- Ruby 2.3.1 newest version
+- Ruby 2.2.0 newest version that works with Travis CI
 - 'type' will cause issues with ActiveRecord 
 - 'yield' could cause issues?
 - Struct (instead of OpenStruct) to be explicit about attributes for a 'Bond'. As well as ability to add convenience methods.
