@@ -18,7 +18,11 @@ describe Factory::Bond do
   end
   
   describe '#term_years' do
-    it 'sets the attribute from #term parameter and parses numeric value'
+    it 'sets the attribute from #term parameter and parses float value' do
+      result = Factory::Bond.build(term: ' 18.5 yEarS  ')
+
+      expect(result.term_years).to eq(18.5)
+    end
   end
 
   describe '#yield' do
