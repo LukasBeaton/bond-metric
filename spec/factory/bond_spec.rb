@@ -10,7 +10,11 @@ describe Factory::Bond do
   end
 
   describe '#type' do
-    it 'sets the attribute from #type parameter, downcases, and strips whitespace'
+    it 'sets the attribute from #type parameter, downcases, and strips whitespace' do
+      result = Factory::Bond.build(type: ' GOVErnment  ')
+
+      expect(result.type).to eq('government')
+    end
   end
   
   describe '#term_years' do
