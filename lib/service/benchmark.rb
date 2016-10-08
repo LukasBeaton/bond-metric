@@ -2,6 +2,10 @@ module Service
   module Benchmark
     extend self
 
+    def calculate_proximity(bond_A, bond_B)
+      (bond_A.term_years - bond_B.term_years).abs
+    end
+
     def calculate_spread_to_benchmark(corporate_bond, government_bond)
       validate_spread_to_benchmark_params(corporate_bond, government_bond)
 

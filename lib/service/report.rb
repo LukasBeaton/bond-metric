@@ -2,7 +2,7 @@ require 'csv'
 
 Struct.new("SpreadToBenchmark", :corporate, :government) do
   def proximity
-    (corporate.term_years - government.term_years).abs
+    Service::Benchmark.calculate_proximity(corporate, government)
   end
 
   def spread
