@@ -5,7 +5,7 @@ A set of functions for calculating bond benchmarks.
 [![Build Status](https://travis-ci.org/LukasBeaton/bond-metric.svg?branch=master)](https://travis-ci.org/LukasBeaton/bond-metric)
 [![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
 
-NOTE: Coverage Status is actually at 100%. There is a bug with Simplecov/Travis CI where the Ruby CSV library is included in the coverage report and it is degrading benchmark. Please see the break down of the Coverage Report for more details by clicking on the "Coverage Status" badge above. 
+NOTE: Coverage Status is actually at 100%. There is a bug with Simplecov/Travis CI where the Ruby CSV library is included in the coverage report and it is degrading the report. Please see the break down of the Coverage Report for more details by clicking on the "Coverage Status" badge above. 
 
 ----------
 
@@ -22,12 +22,17 @@ NOTE: It may work with other versions, however, Ruby 2.2.1 is the only version t
 $git clone https://github.com/LukasBeaton/bond-metric
 ```
 
-#### 2) Install gems
+#### 2) Install gems dependencies
 ```
-$ bundle install
+$bundle install
 ```
 
-#### 3) Run in console
+#### 3) Install bond-metric gem
+```
+$bundle exec rake install
+```
+
+#### 4) Run in console
 ```
 $ irb
 irb(main):001:0> require 'bond_metric'
