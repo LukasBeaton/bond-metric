@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '2.2.0'
+ruby '2.2.1'
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
