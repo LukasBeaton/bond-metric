@@ -20,6 +20,7 @@ end
 
 ENV["COVERAGE"] && SimpleCov.start do
   add_filter "/.rvm/"
+  add_filter "/home/travis/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/csv.rb"
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
