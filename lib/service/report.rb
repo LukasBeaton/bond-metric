@@ -32,6 +32,12 @@ module Service
         @results << record
       end
 
+      results_to_csv
+    end
+
+  private
+
+    def results_to_csv
       csv_string = CSV.generate do |csv|
         csv << @results.first.report_header
         @results.each{ |r| csv << r.report_record }
@@ -39,8 +45,6 @@ module Service
       
       return csv_string
     end
-
-    private
 
     def load_and_sort_records
       csv_text = ::File.read(@file_path)
