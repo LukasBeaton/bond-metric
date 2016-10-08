@@ -2,3 +2,4 @@
 - 'type' will cause issues with ActiveRecord 
 - 'yield' could cause issues?
 - Struct (instead of OpenStruct) to be explicit about attributes for a 'Bond'. As well as ability to add convenience methods.
+- Basis Points
