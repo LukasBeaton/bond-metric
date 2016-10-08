@@ -14,12 +14,12 @@ Struct.new("SpreadToBenchmark", :corporate, :government) do
     sprintf("%.2f%", decimal)
   end
   
-  def print_header
-    "bond,benchmark,spread_to_benchmark"
+  def report_header
+    ['bond', 'benchmark', 'spread_to_benchmark']
   end
 
-  def print_record
-    "#{corporate.bond},#{government.bond},#{print_spread}"
+  def report_record 
+    [corporate.bond, government.bond, print_spread]
   end  
 end  
 
@@ -37,7 +37,7 @@ module Service
     end
     
     def generate_spread_to_benchmark
-      load_records
+      load_and_sort_records
 
       @corporate_bonds.each do |corp_bond|
         result = Struct::SpreadToBenchmark.new(corp_bond, nil)  
@@ -55,18 +55,17 @@ module Service
         @results << result
       end
 
-      text_result = "#{@results.first.print_header}\n"
-
-      @results.each do |result|
-        text_result << "#{result.print_record}\n"
+      csv_string = CSV.generate do |csv|
+        csv << @results.first.report_header
+        @results.each{ |result| csv << result.report_record }
       end
-
-      return text_result
+      
+      return csv_string
     end
 
     private
 
-    def load_records
+    def load_and_sort_records
       csv_text = ::File.read(@file_path)
       csv = ::CSV.new(csv_text, :headers => true, :header_converters => :symbol)
       records = csv.to_a.map {|row| row.to_hash }
