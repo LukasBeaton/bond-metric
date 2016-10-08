@@ -6,6 +6,8 @@ A set of functions for calculating bond benchmarks.
 [![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
 [![Gem Version](https://badge.fury.io/rb/bond-metric.svg)](https://badge.fury.io/rb/bond-metric)
 
+NOTE: Coverage Status is actually at 100%. There is actually a bug with Simplecov/Travis CI where the Ruby CSV library is included in the coverate report and is degrading benchmark. Please see the break down of the Coverage Report for more details by clicking on the "Coverage Status" badge above. 
+
 ----------
 
 ## Requirements
@@ -98,3 +100,5 @@ NOTE: If you are running this command from an irb console and want to see a prop
 
 Copyright (c) 2016 Lukas Beaton. See LICENSE.txt for
 further details.
+
+
