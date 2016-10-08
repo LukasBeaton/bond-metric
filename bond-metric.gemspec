@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Lukas Beaton"]
   s.date = "2016-10-08"
-  s.description = "A set of functions for calculating bond benchmarks."
+  s.description = "TODO: longer description of your gem"
   s.email = "lukas.beaton@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",

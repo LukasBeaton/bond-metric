@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "bond-metric"
   gem.homepage = "http://github.com/LukasBeaton/bond-metric"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A set of functions for calculating bond benchmarks.}
+  gem.description = %Q{A set of functions for calculating bond benchmarks. The current benchmarks that are supported are "Spread to Benchmark" and "Spread to Curve".}
   gem.email = "lukas.beaton@gmail.com"
   gem.authors = ["Lukas Beaton"]
   # dependencies defined in Gemfile
