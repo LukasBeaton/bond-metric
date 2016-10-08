@@ -40,24 +40,24 @@ module Service
       load_and_sort_records
 
       @corporate_bonds.each do |corp_bond|
-        result = Struct::SpreadToBenchmark.new(corp_bond, nil)  
+        record = Struct::SpreadToBenchmark.new(corp_bond, nil)  
 
         @government_bonds.each do |gov_bond|
-          if result.government.nil?
-            result.government = gov_bond
+          if record.government.nil?
+            record.government = gov_bond
           else
-            if (corp_bond.term_years - gov_bond.term_years).abs < result.proximity
-              result.government = gov_bond 
+            if Service::Benchmark.calculate_proximity(corp_bond, gov_bond) < record.proximity
+              record.government = gov_bond 
             end
           end
         end
 
-        @results << result
+        @results << record
       end
 
       csv_string = CSV.generate do |csv|
         csv << @results.first.report_header
-        @results.each{ |result| csv << result.report_record }
+        @results.each{ |r| csv << r.report_record }
       end
       
       return csv_string

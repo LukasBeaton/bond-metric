@@ -4,3 +4,4 @@
 - Struct (instead of OpenStruct) to be explicit about attributes for a 'Bond'. As well as ability to add convenience methods.
 - Basis Points
 - raise exceptions because these things should never happen, notify the developer 
+- sorted records to to optimization
