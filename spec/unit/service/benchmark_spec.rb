@@ -12,4 +12,16 @@ describe Service::Benchmark do
       it 'must have a government bond as the second parameter'
     end
   end
+
+  describe '#calculate_spread_to_curve' do
+    context 'success' do
+      it 'can calculate a positive spread'
+      it 'can calulate a negative spread'
+    end
+
+    context 'failure' do
+      it 'must have a corporate bond as the first parameter'
+      it 'must have a government bond as the second parameter'
+    end
+  end
 end
