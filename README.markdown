@@ -83,7 +83,7 @@ C2,G3,2.80%
 
 NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use the equivalent print function instead.
 
-	irb(main):001:0>BondMetric#generate_spread_to_benchmark(absolute_file_path)
+	irb(main):001:0>BondMetric#print_spread_to_benchmark(absolute_file_path)
 
 ----------
 
@@ -114,7 +114,7 @@ C2,2.98%
 
 NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use the equivalent print function instead.
 
-	irb(main):001:0>BondMetric#generate_spread_to_curve(absolute_file_path)
+	irb(main):001:0>BondMetric#print_spread_to_curve(absolute_file_path)
 
 ## Technical Choices
 
