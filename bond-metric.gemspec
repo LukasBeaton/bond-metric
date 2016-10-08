@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Lukas Beaton"]
   s.date = "2016-10-08"
-  s.description = "TODO: longer description of your gem"
+  s.description = "A set of functions for calculating bond benchmarks. The current benchmarks that are supported are \"Spread to Benchmark\" and \"Spread to Curve\"."
   s.email = "lukas.beaton@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/LukasBeaton/bond-metric"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.4.5"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "A set of functions for calculating bond benchmarks."
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
