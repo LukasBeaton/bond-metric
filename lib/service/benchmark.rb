@@ -9,7 +9,16 @@ module Service
       return corporate_bond.basis_points - government_bond.basis_points
     end 
 
-    def calculate_spread_to_curve(corporate_bond, government_bond_less_term, government_bond_greater_term)
+    def calculate_spread_to_curve(corporate_bond, government_bond_lesser, government_bond_greater)
+      x = corporate_bond.term_years
+      x1 = government_bond_lesser.term_years
+      x2 = government_bond_greater.term_years
+      y1 = government_bond_lesser.basis_points
+      y2 = government_bond_greater.basis_points
+      
+      y = (y1 + ((x - x1)*(y2 - y1))/(x2 - x1)).round
+
+      return corporate_bond.basis_points - y
     end
   end
 end
