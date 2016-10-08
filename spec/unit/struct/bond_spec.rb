@@ -54,8 +54,29 @@ describe Struct::Bond do
   end
   
   describe '#basis_points' do
-    it 'is valid for a integer greater than 0'
-    it 'must be a integer'
-    it 'it must be greater than 0'
+    it 'is valid for a integer greater than 0' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, 789)
+
+      obj.valid_basis_points!
+      expect(obj.valid_basis_points?).to eq(true)
+    end
+
+    it 'must be a integer' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, '789')
+
+      expect(obj.valid_basis_points?).to eq(false)
+      expect{
+        obj.valid_basis_points!
+      }.to raise_error(BondError, 'Basis Points must be a Integer greater than 0')
+    end
+    
+    it 'it must be greater than 0' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, '5.5', 0)
+
+      expect(obj.valid_basis_points?).to eq(false)
+      expect{
+        obj.valid_basis_points!
+      }.to raise_error(BondError, 'Basis Points must be a Integer greater than 0')
+    end
   end
 end
