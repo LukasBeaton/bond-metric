@@ -13,6 +13,7 @@ module Service
       raise "ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a corporate bond as its first parameter!" if corporate_bond.type != BondMetric::CORPORATE
       raise "ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a government bond as its second parameter!" if government_bond_lesser.type != BondMetric::GOVERNMENT
       raise "ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a government bond as its third parameter!" if government_bond_greater.type != BondMetric::GOVERNMENT
+      raise "ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a first government bond parameter with a term that is less than the second government bond parameter!" if government_bond_lesser.term_years > government_bond_greater.term_years
       raise "ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a corporate bond with a term between both of the government bonds!" if corporate_bond.term_years < government_bond_lesser.term_years || corporate_bond.term_years > government_bond_greater.term_years
 
       x = corporate_bond.term_years

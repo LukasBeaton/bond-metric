@@ -91,6 +91,14 @@ describe Service::Benchmark do
         }.to raise_error("ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a government bond as its third parameter!")        
       end
 
+      it 'must have a first government bond with shorter term than the second government bond' do
+        @G1.term_years = 13
+
+        expect{
+          Service::Benchmark.calculate_spread_to_curve(@C1, @G1, @G2)
+        }.to raise_error("ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a first government bond parameter with a term that is less than the second government bond parameter!")        
+      end
+
       it 'must have a corporate bond with a term in between the government bonds' do
         @C1.term_years = 13
         
