@@ -79,4 +79,42 @@ describe Struct::Bond do
       }.to raise_error(BondError, 'Basis Points must be a Integer greater than 0')
     end
   end
+
+  describe '#valid?' do
+    it 'is true when all validations pass' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, 789)
+
+      expect(obj.valid?).to eq(true)
+    end
+
+    it 'is false otherwise' do
+      bad_type = Struct::Bond.new('Name', 'garbage', 5.5, 789)
+      expect(bad_type.valid?).to eq(false)
+
+      bad_term_years = Struct::Bond.new('Name', BondMetric::CORPORATE, '5.5', 789)
+      expect(bad_term_years.valid?).to eq(false)
+
+      bad_basis_points = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, '789')
+      expect(bad_basis_points.valid?).to eq(false)
+    end
+  end
+
+  describe '#valid!' do
+    it 'works when all validations pass' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, 789)
+
+      obj.valid!
+    end
+    
+    it 'explodes otherwise' do
+      bad_type = Struct::Bond.new('Name', 'garbage', 5.5, 789)
+      expect{bad_type.valid!}.to raise_error(BondError)
+
+      bad_term_years = Struct::Bond.new('Name', BondMetric::CORPORATE, '5.5', 789)
+      expect{bad_term_years.valid!}.to raise_error(BondError)
+
+      bad_basis_points = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, '789')
+      expect{bad_basis_points.valid!}.to raise_error(BondError)
+    end
+  end
 end

@@ -22,6 +22,16 @@ Struct.new("Bond", :bond, :type, :term_years, :basis_points) do
     type == BondMetric::GOVERNMENT
   end
 
+  def valid?
+    valid_type? && valid_term_years? && valid_basis_points?
+  end
+
+  def valid!
+    valid_type!
+    valid_term_years!
+    valid_basis_points!
+  end
+
   def valid_type?
     corporate? || government?
   end
