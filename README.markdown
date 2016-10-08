@@ -116,6 +116,26 @@ NOTE: If you are running this command from an irb console and want to see a prop
 
 	irb(main):001:0>BondMetric#generate_spread_to_curve(absolute_file_path)
 
+## Technical Choices
+
+#### Ruby 2.2.1
+I chose to use Ruby 2.2.1 because it is one of the latest stable versions of Ruby that is also stable on Travis CI.
+
+### Testing, TDD, and Continuous Integration
+I chose Rspec as my preferred library for writing tests. I have found Rspec to be more robust and performant that Test Unit and have been using it for significantly longer since switching from Test Unit 6 years ago (2010).
+
+I write code using TDD. Yes, I actually write the test first, watch it fail, and then make it pass. These rapid iterations of RED/GREE/REFACTOR are evident in my many small commits.
+
+From the get-go I integrated Travis CI to run my test suite automatically when I push my Master branch to origin. The GREEN badge at the top of the project assures me that my code is always healthy.
+
+I used Simplcov and Coveralls to ensure that the test coverage of the project does not degrade over time. It is currently 100% and I aim to keep it that way.
+
+### Structs
+I used Ruby's Struct library to model my entities. For the small scale of this library it seemed like a very simple way to create a class object without the overhead of actually creating a class. It also allowed be to be explicit about the attributes on my entities and allowed me to easily create convenience methods and validations.
+
+
+
+
 ----------
 
 ## Contributing to bond-metric
