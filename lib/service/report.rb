@@ -13,6 +13,10 @@ module Service
       self.new(file_path).generate_spread_to_benchmark
     end
     
+    def self.generate_spread_to_curve(file_path)
+      self.new(file_path).generate_spread_to_curve
+    end
+    
     def generate_spread_to_benchmark
       load_and_sort_records
 
@@ -27,6 +31,33 @@ module Service
               record.government = gov_bond 
             end
           end
+        end
+
+        @results << record
+      end
+
+      results_to_csv
+    end
+
+    def generate_spread_to_curve
+      load_and_sort_records
+      
+      @corporate_bonds.each do |corp_bond|
+        record = Struct::SpreadToCurve.new(corp_bond, nil, nil)  
+
+        index = 0
+        while(index < (@government_bonds.count - 1)) do
+          bond_lesser = @government_bonds[index]
+          bond_greater = @government_bonds[index + 1]
+          
+          if corp_bond.term_years.between?(bond_lesser.term_years, bond_greater.term_years)
+            record.government_lesser = bond_lesser
+            record.government_greater = bond_greater
+
+            break
+          end
+          
+          index += 1
         end
 
         @results << record
@@ -84,5 +115,24 @@ Struct.new("SpreadToBenchmark", :corporate, :government) do
 
   def report_record 
     [corporate.bond, government.bond, print_spread]
+  end  
+end  
+
+Struct.new("SpreadToCurve", :corporate, :government_lesser, :government_greater) do
+  def spread
+    Service::Benchmark.calculate_spread_to_curve(corporate, government_lesser, government_greater)
+  end
+
+  def print_spread
+    decimal = (spread / 100.0)
+    sprintf("%.2f%", decimal)
+  end
+  
+  def report_header
+    ['bond', 'spread_to_curve']
+  end
+
+  def report_record 
+    [corporate.bond, print_spread]
   end  
 end  
