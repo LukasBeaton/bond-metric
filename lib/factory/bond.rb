@@ -1,4 +1,12 @@
-Struct.new("Bond", :bond, :type, :term_years, :basis_points)
+Struct.new("Bond", :bond, :type, :term_years, :basis_points) do
+  def corporate?
+    type == BondMetric::CORPORATE
+  end
+
+  def government?
+    type == BondMetric::GOVERNMENT
+  end
+end
 
 module Factory
   module Bond
