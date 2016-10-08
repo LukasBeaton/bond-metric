@@ -56,7 +56,15 @@ describe Service::Benchmark do
         expect(result).to eq(122)
       end
       
-      it 'can calulate a negative spread'
+      it 'can calulate a negative spread' do
+        @C1.basis_points = 320
+        @G1.basis_points = 480
+        @G2.basis_points = 370
+
+        result = Service::Benchmark.calculate_spread_to_curve(@C1, @G1, @G2)
+
+        expect(result).to eq(-122)
+      end
     end
 
     context 'failure' do
