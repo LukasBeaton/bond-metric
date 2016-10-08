@@ -6,13 +6,19 @@ A set of functions for calculating bond benchmarks.
 [![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
 [![Gem Version](https://badge.fury.io/rb/bond-metric.svg)](https://badge.fury.io/rb/bond-metric)
 
+----------
+
 ## Requirements
-Ruby 2.2.1
+- Ruby 2.2.1
 
 NOTE: It may work with other versions, however, Ruby 2.2.1 is the only version that has been tested to date.
 
+----------
+
 ## Install
 	$ gem install bond-metric
+
+----------
 	
 ## Functions
 
@@ -41,9 +47,11 @@ C1,G1,1.60%
 C2,G3,2.80%
 ```
 
-NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use equivalent print function instead.
+NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use the equivalent print function instead.
 
 	irb(main):001:0>BondMetric#generate_spread_to_benchmark(absolute_file_path)
+
+----------
 
 #### BondMetric#generate_spread_to_curve(absolute_file_path)
 **Description:** This function analyzes a list of corporate and government bonds. It will determine two benchmark government bonds for each corporate bond and compute the spread to the government bond curve.
@@ -70,11 +78,13 @@ C1,1.22
 C2,2.98%
 ```
 
-NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use equivalent print function instead.
+NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use the equivalent print function instead.
 
 	irb(main):001:0>BondMetric#generate_spread_to_curve(absolute_file_path)
 
-== Contributing to bond-metric
+----------
+
+## Contributing to bond-metric
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -84,7 +94,7 @@ NOTE: If you are running this command from an irb console and want to see a prop
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2016 Lukas Beaton. See LICENSE.txt for
 further details.
