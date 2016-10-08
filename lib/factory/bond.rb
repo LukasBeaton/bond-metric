@@ -23,11 +23,12 @@ Struct.new("Bond", :bond, :type, :term_years, :basis_points) do
   end
 
   def valid_type?
-    corporate?
+    corporate? || government?
   end
 
   def valid_type!
-    raise "error" unless valid_type?
+    return if valid_type?
+    raise BondError.new("Type must be either 'corporate' OR 'government'")
   end
 end
 

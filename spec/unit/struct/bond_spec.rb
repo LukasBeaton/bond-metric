@@ -22,7 +22,7 @@ describe Struct::Bond do
       expect(obj.valid_type?).to eq(false)
       expect{
         obj.valid_type!
-      }.to raise(BondError.new("Type must be either '#{BondMetric::CORPORATE}' OR '#{BondMetric::GOVERNMENT}'"))
+      }.to raise_error(BondError, "Type must be either 'corporate' OR 'government'")
     end
   end
 
