@@ -26,7 +26,9 @@ The CSV must be in the following format.
 
 ```
 bond,type,term,yield
+C2,corporate,15.2 years,8.30%
 C1,corporate,10.3 years,5.30%
+G3,government,16.3 years,5.50%
 G1,government,9.4 years,3.70%
 G2,government,12 years,4.80%
 ```
@@ -41,9 +43,36 @@ C2,G3,2.80%
 
 NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use equivalent print function instead.
 
-	irb(main):001:0>BondMetric#generate_spread_to_benchmark(absolute_file_path)*
+	irb(main):001:0>BondMetric#generate_spread_to_benchmark(absolute_file_path)
 
+#### BondMetric#generate_spread_to_curve(absolute_file_path)
+**Description:** This function analyzes a list of corporate and government bonds. It will determine two benchmark government bonds for each corporate bond and compute the spread to the government bond curve.
 
+**Parameters:** This function accepts an absolute file path as a parameter.
+e.g. */home/lukas/bond-list.csv*
+
+The CSV must be in the following format.
+
+```
+bond,type,term,yield
+C2,corporate,15.2 years,8.30%
+C1,corporate,10.3 years,5.30%
+G3,government,16.3 years,5.50%
+G1,government,9.4 years,3.70%
+G2,government,12 years,4.80%
+```
+
+**Output:** It responds with the yield spread for each coporate bond in CSV. For example:
+
+```
+bond,spread_to_curve
+C1,1.22
+C2,2.98%
+```
+
+NOTE: If you are running this command from an irb console and want to see a properly formatted response in stdout, then use equivalent print function instead.
+
+	irb(main):001:0>BondMetric#generate_spread_to_curve(absolute_file_path)
 
 == Contributing to bond-metric
  
