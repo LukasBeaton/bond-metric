@@ -15,6 +15,12 @@ CSV
     end
 
     it 'raises an exception when there is invalid data in the CSV file'
+
+    it 'raises an exception when the file can not be opened' do
+      expect{
+        Service::Report.generate_spread_to_benchmark('/bad/path/to/file.csv')
+      }.to raise_error("ERROR: There was a problem trying to open '/bad/path/to/file.csv'")
+    end
   end
 
   describe '#generate_spread_to_curve' do
@@ -31,5 +37,11 @@ CSV
     end
 
     it 'raises an exception when there is invalid data in the CSV file'
+    
+    it 'raises an exception when the file can not be opened' do
+      expect{
+        Service::Report.generate_spread_to_curve('/bad/path/to/file.csv')
+      }.to raise_error("ERROR: There was a problem trying to open '/bad/path/to/file.csv'")
+    end
   end
 end

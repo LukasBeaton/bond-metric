@@ -78,7 +78,12 @@ module Service
     end
 
     def load_and_sort_records
-      csv_text = ::File.read(@file_path)
+      begin
+        csv_text = ::File.read(@file_path)
+      rescue Exception => e
+        raise("ERROR: There was a problem trying to open '#{@file_path}'")
+      end
+      
       csv = ::CSV.new(csv_text, :headers => true, :header_converters => :symbol)
       records = csv.to_a.map {|row| row.to_hash }
 
