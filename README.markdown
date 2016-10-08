@@ -1,7 +1,7 @@
 = bond-metric
 
 [![Build Status](https://travis-ci.org/LukasBeaton/bond-metric.svg?branch=master)](https://travis-ci.org/LukasBeaton/bond-metric)
-[![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg?branch=master)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
 
 A set of functions for calculating bond benchmarks.
 
