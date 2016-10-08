@@ -1,13 +1,3 @@
-Struct.new("Bond", :bond, :type, :term_years, :basis_points) do
-  def corporate?
-    type == BondMetric::CORPORATE
-  end
-
-  def government?
-    type == BondMetric::GOVERNMENT
-  end
-end
-
 module Factory
   module Bond
     extend self
@@ -21,4 +11,25 @@ module Factory
       obj
     end
   end
+end
+
+Struct.new("Bond", :bond, :type, :term_years, :basis_points) do
+  def corporate?
+    type == BondMetric::CORPORATE
+  end
+
+  def government?
+    type == BondMetric::GOVERNMENT
+  end
+
+  def valid_type?
+    corporate?
+  end
+
+  def valid_type!
+    raise "error" unless valid_type?
+  end
+end
+
+class BondError < StandardError 
 end
