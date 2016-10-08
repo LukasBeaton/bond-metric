@@ -18,14 +18,17 @@ NOTE: It may work with other versions, however, Ruby 2.2.1 is the only version t
 ----------
 
 ## Run in a console
-1. Clone the GitHub repo
+#### 1) Clone the GitHub repo
+```
+$git clone https://github.com/LukasBeaton/bond-metric
+```
 
-2. Install gems
+#### 2) Install gems
 ```
 $ bundle install
 ```
 
-3. Run in console
+#### 3) Run in console
 ```
 $ irb
 irb(main):001:0> require 'bond_metric'
