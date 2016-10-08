@@ -86,9 +86,18 @@ module Service
       
       csv = ::CSV.new(csv_text, :headers => true, :header_converters => :symbol)
       records = csv.to_a.map {|row| row.to_hash }
+      line = 1 #start at 1 because of header
 
       records.each do|record| 
+        line += 1
+
         bond = Factory::Bond.build(record)
+
+        begin
+          bond.valid!
+        rescue Exception => e
+          raise "ERROR on line #{line}: #{e.message}" 
+        end
         
         @corporate_bonds << bond if bond.corporate?
         @government_bonds << bond if bond.government?
