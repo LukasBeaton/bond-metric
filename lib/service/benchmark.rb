@@ -3,7 +3,7 @@ module Service
     extend self
 
     def calculate_spread_to_benchmark(corporate_bond, government_bond)
-      corporate_bond.yield - government_bond.yield
+      corporate_bond.basis_points - government_bond.basis_points
     end 
   end
 end
