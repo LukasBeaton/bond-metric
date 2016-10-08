@@ -68,9 +68,29 @@ describe Service::Benchmark do
     end
 
     context 'failure' do
-      it 'must have a corporate bond as the first parameter'
-      it 'must have a government bond as the second parameter'
-      it 'must have a government bond as the third parameter'
+      before do
+        @C2 = Struct::Bond.new('C2', 'corporate', 10.1, 510)
+        @G3 = Struct::Bond.new('G3', 'government', 9.5, 375)
+      end
+      
+      it 'must have a corporate bond as the first parameter' do
+        expect{
+          Service::Benchmark.calculate_spread_to_curve(@G3, @G1, @G2)
+        }.to raise_error("ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a corporate bond as its first parameter!")        
+      end
+      
+      it 'must have a government bond as the second parameter' do
+        expect{
+          Service::Benchmark.calculate_spread_to_curve(@C1, @C2, @G2)
+        }.to raise_error("ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a government bond as its second parameter!")        
+      end
+      
+      it 'must have a government bond as the third parameter' do
+        expect{
+          Service::Benchmark.calculate_spread_to_curve(@C1, @G1, @C2)
+        }.to raise_error("ERROR: Service::Benchmark#calculate_spread_to_curve MUST have a government bond as its third parameter!")        
+      end
+      
       it 'must have a corporate bond with a term in between the government bonds'
     end
   end
