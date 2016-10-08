@@ -1,3 +1,6 @@
+require 'struct/bond'
+require 'struct/spread_to_benchmark'
+require 'struct/spread_to_curve'
 require 'factory/bond'
 require 'service/benchmark'
 require 'service/report'
