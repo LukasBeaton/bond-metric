@@ -54,29 +54,26 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, ["= 2.14.0"])
-      s.add_development_dependency(%q<byebug>, [">= 0"])
-      s.add_development_dependency(%q<coveralls>, [">= 0"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
-      s.add_development_dependency(%q<simplecov>, [">= 0"])
+      s.add_development_dependency(%q<byebug>, ["= 9.0.6"])
+      s.add_development_dependency(%q<coveralls>, ["= 0.8.15"])
+      s.add_development_dependency(%q<rdoc>, ["= 3.12.2"])
+      s.add_development_dependency(%q<jeweler>, ["= 2.0.1"])
+      s.add_development_dependency(%q<simplecov>, ["= 0.12.0"])
     else
       s.add_dependency(%q<rspec>, ["= 2.14.0"])
-      s.add_dependency(%q<byebug>, [">= 0"])
-      s.add_dependency(%q<coveralls>, [">= 0"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
-      s.add_dependency(%q<simplecov>, [">= 0"])
+      s.add_dependency(%q<byebug>, ["= 9.0.6"])
+      s.add_dependency(%q<coveralls>, ["= 0.8.15"])
+      s.add_dependency(%q<rdoc>, ["= 3.12.2"])
+      s.add_dependency(%q<jeweler>, ["= 2.0.1"])
+      s.add_dependency(%q<simplecov>, ["= 0.12.0"])
     end
   else
     s.add_dependency(%q<rspec>, ["= 2.14.0"])
-    s.add_dependency(%q<byebug>, [">= 0"])
-    s.add_dependency(%q<coveralls>, [">= 0"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
-    s.add_dependency(%q<simplecov>, [">= 0"])
+    s.add_dependency(%q<byebug>, ["= 9.0.6"])
+    s.add_dependency(%q<coveralls>, ["= 0.8.15"])
+    s.add_dependency(%q<rdoc>, ["= 3.12.2"])
+    s.add_dependency(%q<jeweler>, ["= 2.0.1"])
+    s.add_dependency(%q<simplecov>, ["= 0.12.0"])
   end
 end
 
