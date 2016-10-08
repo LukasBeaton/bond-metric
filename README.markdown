@@ -6,7 +6,7 @@ A set of functions for calculating bond benchmarks.
 [![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
 [![Gem Version](https://badge.fury.io/rb/bond-metric.svg)](https://badge.fury.io/rb/bond-metric)
 
-NOTE: Coverage Status is actually at 100%. There is actually a bug with Simplecov/Travis CI where the Ruby CSV library is included in the coverate report and is degrading benchmark. Please see the break down of the Coverage Report for more details by clicking on the "Coverage Status" badge above. 
+NOTE: Coverage Status is actually at 100%. There is a bug with Simplecov/Travis CI where the Ruby CSV library is included in the coverage report and it is degrading benchmark. Please see the break down of the Coverage Report for more details by clicking on the "Coverage Status" badge above. 
 
 ----------
 
@@ -17,7 +17,32 @@ NOTE: It may work with other versions, however, Ruby 2.2.1 is the only version t
 
 ----------
 
-## Install
+## Run in a console
+1. Clone the GitHub repo
+
+2. Install gems
+```
+$ bundle install
+```
+
+3. Run in console
+```
+$ irb
+irb(main):001:0> require 'bond_metric'
+=> true
+irb(main):002:0> file = '/Users/lukas/bond-metric/spec/fixtures/bonds_good.csv'
+=> "/Users/adknowledgeuser/bond-metric/spec/fixtures/bonds_good.csv"
+irb(main):003:0> BondMetric.print_spread_to_benchmark(file)
+bond,benchmark,spread_to_benchmark
+C1,G1,1.60%
+C2,G3,2.80%
+=> nil
+irb(main):004:0> BondMetric.print_spread_to_curve(file)
+bond,spread_to_curve
+C1,1.22%
+C2,2.98%
+=> nil
+```
 	$ gem install bond-metric
 
 ----------
