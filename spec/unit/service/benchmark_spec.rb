@@ -14,7 +14,13 @@ describe Service::Benchmark do
         expect(result).to eq(0.016)
       end
       
-      it 'can calulate a negative spread'
+      it 'can calulate a negative spread' do
+        @G1.yield = 0.06
+
+        result = Service::Benchmark.calculate_spread_to_benchmark(@C1, @G1)
+
+        expect(result).to eq(-0.007)
+      end
     end
 
     context 'failure' do
