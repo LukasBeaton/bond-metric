@@ -30,6 +30,15 @@ Struct.new("Bond", :bond, :type, :term_years, :basis_points) do
     return if valid_type?
     raise BondError.new("Type must be either 'corporate' OR 'government'")
   end
+
+  def valid_term_years?
+    term_years.class == Float && term_years > 0
+  end
+
+  def valid_term_years!
+    return if valid_term_years?
+    raise BondError.new('Term Years must be a Float greater than 0')
+  end
 end
 
 class BondError < StandardError 

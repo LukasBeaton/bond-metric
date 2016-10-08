@@ -27,9 +27,30 @@ describe Struct::Bond do
   end
 
   describe '#term_years' do
-    it 'is valid for a decimal greater than 0'
-    it 'must be decimal'
-    it 'it must be greater than 0'
+    it 'is valid for a decimal greater than 0' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, 5.5, 789)
+
+      obj.valid_term_years!
+      expect(obj.valid_term_years?).to eq(true)
+    end
+
+    it 'must be float' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, '5.5', 789)
+
+      expect(obj.valid_term_years?).to eq(false)
+      expect{
+        obj.valid_term_years!
+      }.to raise_error(BondError, 'Term Years must be a Float greater than 0')
+    end
+    
+    it 'it must be greater than 0' do
+      obj = Struct::Bond.new('Name', BondMetric::CORPORATE, 0.0, 789)
+
+      expect(obj.valid_term_years?).to eq(false)
+      expect{
+        obj.valid_term_years!
+      }.to raise_error(BondError, 'Term Years must be a Float greater than 0')
+    end
   end
   
   describe '#basis_points' do
