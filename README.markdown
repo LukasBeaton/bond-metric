@@ -5,8 +5,6 @@ A set of functions for calculating bond benchmarks.
 [![Build Status](https://travis-ci.org/LukasBeaton/bond-metric.svg?branch=master)](https://travis-ci.org/LukasBeaton/bond-metric)
 [![Coverage Status](https://coveralls.io/repos/github/LukasBeaton/bond-metric/badge.svg)](https://coveralls.io/github/LukasBeaton/bond-metric?branch=master)
 
-NOTE: Coverage Status is actually at 100%. There is a bug with Simplecov/Travis CI where the Ruby CSV library is included in the coverage report and it is degrading the report. Please see the break down of the Coverage Report for more details by clicking on the "Coverage Status" badge above. 
-
 ----------
 
 ## Requirements
@@ -128,7 +126,7 @@ I implemented the solution using TDD. Yes, I actually write the test first, watc
 
 From the get-go I integrated Travis CI to run my test suite automatically when I push my Master branch to origin. The GREEN badge at the top of the project assures me that my code is always healthy.
 
-I used Simplcov and Coveralls to ensure that the test coverage of the project does not degrade over time. Code coverage currently 100% and I aim to keep it that way.
+I used Simplcov and Coveralls to ensure that the test coverage of the project does not degrade over time. Code coverage is currently at 100%. 
 
 #### Structs
 I used Ruby's Struct library to model my entities. For the small scale of this project it seemed like a very simple way to create a class object without the overhead of actually creating a class. It also allowed me to be explicit about the attributes on my entities, create convenience methods and create validations.
