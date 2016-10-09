@@ -122,13 +122,13 @@ NOTE: If you are running this command from an irb console and want to see a prop
 I chose to use Ruby 2.2.1 because it is one of the latest stable versions of Ruby that is also stable on Travis CI.
 
 #### Testing, TDD, and Continuous Integration
-I chose Rspec as my preferred library for writing tests. I have found Rspec to be more robust and performant that Test Unit and have been using it for significantly longer since switching from Test Unit 6 years ago (2010).
+I chose Rspec as my preferred library for writing tests. I have found Rspec to be more robust and performant than Test Unit. I have also been using Rspec for significantly longer since switching from TestUnit in 2010.
 
-I write code using TDD. Yes, I actually write the test first, watch it fail, and then make it pass. These rapid iterations of RED/GREE/REFACTOR are evident in my many small commits. Objects are also tested in isolation as much as possible to achieve a loose coupling in the test suite.
+I implemented the solution using TDD. Yes, I actually write the test first, watch it fail, and then make it pass. These rapid iterations of RED/GREE/REFACTOR are evident in my many small commits. Objects are also tested in isolation as much as possible to achieve a loose coupling in the test suite.
 
 From the get-go I integrated Travis CI to run my test suite automatically when I push my Master branch to origin. The GREEN badge at the top of the project assures me that my code is always healthy.
 
-I used Simplcov and Coveralls to ensure that the test coverage of the project does not degrade over time. It is currently 100% and I aim to keep it that way.
+I used Simplcov and Coveralls to ensure that the test coverage of the project does not degrade over time. Code coverage currently 100% and I aim to keep it that way.
 
 #### Structs
 I used Ruby's Struct library to model my entities. For the small scale of this project it seemed like a very simple way to create a class object without the overhead of actually creating a class. It also allowed me to be explicit about the attributes on my entities, create convenience methods and create validations.
@@ -137,11 +137,11 @@ I used Ruby's Struct library to model my entities. For the small scale of this p
 I noticed that the values "yield" and "type" are used as headers in the CSV file. I explicitly avoided using these words, as much as possible, in my implementation. For instance, using these words as field names can cause issues in Ruby applications, especially with Rails and ActiveRecord.
 
 #### Basis Points
-Intead of storing the yield as a decimal and or float I decided to store it as an Integer in a field called 'basis_points' on the Struct::Bond entity. I did this to eliminate any potential rounding error when calculating the benchmarks.
+Intead of storing the yield as a Decimal and/or Float I decided to store it as an Integer in a field called 'basis_points' on the Struct::Bond entity. I did this to eliminate any potential rounding error when calculating the benchmarks.
 
 ## Improvements
 
-### Optimization
+### Optimization and Enhancements
 The report generation could be optimized. It currently runs as O(n^2) but could be optimized to run as O(n) with a small enhancement. 
 
 A binary search could even be used to bring the time complexity down to O(log(n)).
